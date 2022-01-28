@@ -250,6 +250,7 @@
 //////////////////////////////////// BUTTON INLINE
 .btn-inline {
   display: inline-block;
+  // margin: auto;
   border: none;
   color: var(--color-primary);
   font-size: inherit;
@@ -259,8 +260,17 @@
   cursor: pointer;
   transition: all 0.2s;
 
+  & span {
+    margin-left: 3px;
+    transition: margin-left 0.2s;
+  }
+
   &:hover {
     color: var(--color-grey-dark-1);
+
+    span {
+      margin-left: 8px;
+    }
   }
 
   &:focus {
@@ -283,5 +293,176 @@
   100% {
     transform: scale(1);
     box-shadow: none;
+  }
+}
+
+//////////////////////////////////// PARAGRAPH
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+//////////////////////////////////// LIST
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 3rem 0;
+  padding: 3rem;
+  border-bottom: var(--line);
+  border-top: var(--line);
+
+  &__item {
+    flex: 0 0 50%;
+    margin-bottom: 0.7rem;
+  }
+
+  &__item::before {
+    content: "";
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    margin-right: 0.7rem;
+    // Older browsers
+    // background-image: url(../img/chevron-thin-right.svg);
+    // background-size: cover;
+
+    // Newer browsers - masks
+    background-color: var(--color-primary);
+    -webkit-mask-image: url(../img/chevron-thin-right.svg);
+    -webkit-mask-size: cover;
+    mask-image: url(../img/chevron-thin-right.svg);
+    mask-size: cover;
+  }
+}
+
+//////////////////////////////////// RECOMMEND
+
+.recommend {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-3);
+
+  &__count {
+    margin-right: auto;
+  }
+
+  &__friends {
+  }
+
+  &__photo {
+    box-sizing: content-box;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+
+    &:not(:last-child) {
+      margin-right: -1.5rem;
+    }
+  }
+}
+
+//////////////////////////////////// REVIEWS
+
+.review {
+  position: relative;
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  margin-bottom: 3.5rem;
+  overflow: hidden;
+
+  &__text {
+    position: relative;
+    margin-bottom: 2rem;
+    z-index: 7;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+  }
+
+  &__photo {
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+  }
+
+  &__user-box {
+    margin-right: auto;
+  }
+
+  &__user-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  &__user-date {
+    font-size: 1rem;
+    color: var(--color-grey-dark-3);
+  }
+
+  &__rating {
+    color: var(--color-primary);
+    font-size: 2.2rem;
+    font-weight: 300;
+  }
+
+  &::before {
+    position: absolute;
+    content: "\201C";
+    top: -3rem;
+    left: -1rem;
+    line-height: 1;
+    font-size: 20rem;
+    color: var(--color-grey-light-2);
+    font-family: sans-serif;
+    z-index: 5;
+  }
+}
+
+//////////////////////////////////// CTA - Call To Action!
+.cta {
+  padding: 3.5rem 0;
+  text-align: center;
+
+  &__book-now {
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+}
+
+//////////////////////////////////// BOTTOM BUTTON
+
+.btn {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-radius: 100px;
+  background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+  color: #fff;
+  border: none;
+
+  &__visible {
+    display: inline-block;
+    padding: 2rem 7.5rem;
+  }
+
+  &__invisible {
+    position: absolute;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    padding: 2rem 0;
+    left: 0;
+    top: -100%;
   }
 }
